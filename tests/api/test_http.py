@@ -14,7 +14,6 @@ def test_second_request():
     print(f'Response BODY = {r.json()} \n')
     print(f'Response STATUS CODE= {r.status_code}\n')
     print(f'Response HEADERS= {r.headers}\n')
-    # Tests
     body = r.json()
     headers = r.headers
 
@@ -22,8 +21,10 @@ def test_second_request():
     assert r.status_code == 200
     assert headers['Server'] == 'GitHub.com'
 
+
 @pytest.mark.http
 def test_status_code_request():
     r = requests.get('https://api.github.com/users/qweasdqweasdqweasd')
     # Failed test
-    assert  r.status_code == 404
+    assert r.status_code == 404
+
