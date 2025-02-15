@@ -4,27 +4,26 @@ import requests
 
 @pytest.mark.http
 def test_first_request():
-    r = requests.get('https://api.github.com/zen')
-    print(f'Response = {r.text}')
+    r = requests.get("https://api.github.com/zen")
+    print(f"Response = {r.text}")
 
 
 @pytest.mark.http
 def test_second_request():
-    r = requests.get('https://api.github.com/users/defunkt')
-    print(f'Response BODY = {r.json()} \n')
-    print(f'Response STATUS CODE= {r.status_code}\n')
-    print(f'Response HEADERS= {r.headers}\n')
+    r = requests.get("https://api.github.com/users/defunkt")
+    print(f"Response BODY = {r.json()} \n")
+    print(f"Response STATUS CODE= {r.status_code}\n")
+    print(f"Response HEADERS= {r.headers}\n")
     body = r.json()
     headers = r.headers
 
-    assert body['name'] == 'Chris Wanstrath'
+    assert body["name"] == "Chris Wanstrath"
     assert r.status_code == 200
-    assert headers['Server'] == 'github.com'
+    assert headers["Server"] == "github.com"
 
 
 @pytest.mark.http
 def test_status_code_request():
-    r = requests.get('https://api.github.com/users/qweasdqweasdqweasd11')
+    r = requests.get("https://api.github.com/users/qweasdqweasdqweasd11")
     # Failed test
     assert r.status_code == 404
-
