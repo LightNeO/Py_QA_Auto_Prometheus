@@ -20,12 +20,12 @@ def test_check_all_userts():
 @pytest.mark.database
 def test_check_user_sergii():
     db = Database()
-    user = db.get_user_address_by_name('Sergii')
+    user = db.get_user_address_by_name("Sergii")
 
-    assert user[0][0] == 'Maydan Nezalezhnosti 1'
-    assert user[0][1] == 'Kyiv'
-    assert user[0][2] == '3127'
-    assert user[0][3] == 'Ukraine'
+    assert user[0][0] == "Maydan Nezalezhnosti 1"
+    assert user[0][1] == "Kyiv"
+    assert user[0][2] == "3127"
+    assert user[0][3] == "Ukraine"
 
 
 @pytest.mark.database
@@ -60,11 +60,10 @@ def test_delete_product_by_id():
 def test_detailed_orders():
     db = Database()
     orders = db.get_detailde_orders()
-    print('Замовлення', orders)
+    print("Замовлення", orders)
     assert len(orders) == 1
 
     assert orders[0][0] == 1
-    assert orders[0][1] == 'Sergii'
-    assert orders[0][2] == 'солодка вода'
-    assert orders[0][3] == 'з цукром'
-
+    assert orders[0][1] == "Sergii"
+    assert orders[0][2] == "солодка вода"
+    assert orders[0][3] == "з цукром"
